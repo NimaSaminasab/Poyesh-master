@@ -96,8 +96,20 @@ public class ElevService {
 
         return elevRepository.findByCityIgnoreCase(city) ;
     }
+    public List<Elev> findElevByFornavnOrEtternavn(String fornavn, String etternavn){
+        return elevRepository.findByFornavnIgnoreCaseOrEtternavnIgnoreCase(fornavn, etternavn) ;
+    }
 
     public List<Elev> findElevWhoHasNoSupporter(){
         return elevRepository.findByHarSupporterIsFalse();
     }
+
+    public List<Elev> findElevByTelefon(String telefon) {
+        return elevRepository.findByTelefon1OrTelefon2OrTelefon3(telefon, telefon, telefon);
+    }
+    public List<Elev> findElevByFornavnOrEtternavnOrCityOrSkolenavn(String input) {
+        return elevRepository.findByFornavnContainingIgnoreCaseOrEtternavnContainingIgnoreCaseOrCityContainingIgnoreCaseOrSkolenavnContainingIgnoreCase(input, input, input, input);
+    }
+
+
 }

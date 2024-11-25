@@ -50,6 +50,49 @@ public class ElevController {
         }
         return null;
     }
+    @GetMapping("/findAElev/{input}")
+    @ResponseBody
+    public Object findAElev(@PathVariable String input) {
+        // Check if the input is numeric
+        if (input.matches("\\d+")) { // If numeric, treat it as an ID, personnummer, or telefon
+            long id = Long.parseLong(input);
+            if (id > 0) {
+                Elev elev = elevService.findElevById(id);
+                if (elev != null) {
+                    return elev;
+                } else {
+                    // Check personnummer
+                    Elev elevByPersonnummer = elevService.findElevByPersonnummer(input);
+                    if (elevByPersonnummer != null) {
+                        return elevByPersonnummer;
+                    }
+
+                    // Check telefon
+                    List<Elev> elevsByTelefon = elevService.findElevByTelefon(input);
+                    return !elevsByTelefon.isEmpty() ? elevsByTelefon : "No Elevs found with telefon: " + input;
+                }
+            }
+        } else {
+            // Split the input by spaces to check if it's one or two words
+            String[] parts = input.split("\\s+"); // Split by whitespace
+
+            if (parts.length == 1) { // Single word
+                // Search by fornavn, etternavn, city, or skolenavn containing the word
+                List<Elev> elevs = elevService.findElevByFornavnOrEtternavnOrCityOrSkolenavn(parts[0]);
+                return !elevs.isEmpty() ? elevs : "No Elevs found matching input: " + input;
+            } else if (parts.length == 2) { // Two words
+                // Search by exact fornavn and etternavn
+                List<Elev> elevs = elevService.findElevByFornavnAndEtternavn(parts[0], parts[1]);
+                return !elevs.isEmpty() ? elevs : "No Elevs found with name: " + parts[0] + " " + parts[1];
+            }
+        }
+        return "Invalid input.";
+    }
+
+
+
+
+
 
     @GetMapping("/findAllElev")
     @ResponseBody

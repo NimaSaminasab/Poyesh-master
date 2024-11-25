@@ -24,7 +24,6 @@ public class BetalingController {
     @Autowired
     CurrencyExchangeService currencyExchangeService;
 
-
     @PostMapping("/createBetaling")
     @ResponseBody
     public String createBetaling(@RequestBody Betaling betaling) throws Exception {
@@ -78,9 +77,6 @@ public class BetalingController {
         return "Payment successfully created!";
     }
 
-
-
-
     @DeleteMapping("/deleteBetaling/{id}")
     @ResponseBody
     public String deleteBetalingById(@PathVariable long id) throws Exception {
@@ -89,7 +85,7 @@ public class BetalingController {
             if (betaling != null) {
                 return betalingService.deleteBetaling(betaling);
             } else
-                return "Couldn´t find Costumer with id " + id;
+                return "Couldn´t find Customer with id " + id;
         } else
             return "No valid id";
     }
@@ -106,17 +102,13 @@ public class BetalingController {
     @GetMapping("/findABetaling/")
     @ResponseBody
     public List<Betaling> findABetaling(@RequestBody Betaling betaling) {
-        Betaling betaling1 = null ;
         if (betaling.getId() > 0) {
-            return betalingService.findABetalingById2(betaling.getId() );
+            return betalingService.findABetalingById2(betaling.getId());
+        } else if (betaling.getFakturaNummer() != null) {
+            return betalingService.findABetalingByFakturanummer(betaling.getFakturaNummer());
+        } else if (betaling.getDato() != null) {
+            return betalingService.findABetalingByDate(betaling.getDato());
         }
-        else if(betaling.getFakturaNummer()!=null){
-            return betalingService.findABetalingByFakturanummer(betaling.getFakturaNummer()) ;
-        }
-        else if(betaling.getDato()!=null){
-            betalingService.findABetalingByDate(betaling.getDato() ) ;
-        }
-
         return null;
     }
 
@@ -129,15 +121,14 @@ public class BetalingController {
             paymentMap.put("fakturaNummer", betaling.getFakturaNummer());
             paymentMap.put("belop", betaling.getBelop());
             paymentMap.put("dato", betaling.getDato());
-            paymentMap.put("supporter", betaling.getSupporter().getId());
-            paymentMap.put("elev", betaling.getElev().getId());
+
+            // Include supporter and elev names
+            paymentMap.put("supporterId", betaling.getSupporter().getId());
+            paymentMap.put("supporterName", betaling.getSupporter().getFornavn() + " " + betaling.getSupporter().getEtternavn()); // Assuming `getNavn()` returns the name
+            paymentMap.put("elevId", betaling.getElev().getId());
+            paymentMap.put("elevName", betaling.getElev().getFornavn() + " " + betaling.getElev().getEtternavn() ) ; // Assuming `getNavn()` returns the name
             return paymentMap;
         }).collect(Collectors.toList());
     }
-
-
-
-
-
-
 }
+
