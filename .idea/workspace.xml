@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="33535a36-198b-4e44-921a-b3187c0ab43b" name="Changes" comment="changed from H2database to mysql database">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BetalingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BetalingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ElevController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ElevController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ElevRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ElevRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ElevService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ElevService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +23,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "NimaSaminasab"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/NimaSaminasab/Poyesh-master",
+    "accountId": "1acc26f2-5fe2-45cc-a074-6b3c12ef8df7"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -201,7 +209,28 @@
       <option name="project" value="LOCAL" />
       <updated>1727260516581</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL−00016" summary="changed from H2database to mysql database">
+      <option name="closed" value="true" />
+      <created>1732544456925</created>
+      <option name="number" value="LOCAL−00016" />
+      <option name="presentableId" value="LOCAL−00016" />
+      <updated>1732544456925</updated>
+    </task>
+    <task id="LOCAL−00017" summary="changed from H2database to mysql database">
+      <option name="closed" value="true" />
+      <created>1732544497337</created>
+      <option name="number" value="LOCAL−00017" />
+      <option name="presentableId" value="LOCAL−00017" />
+      <updated>1732544497337</updated>
+    </task>
+    <task id="LOCAL−00018" summary="changed from H2database to mysql database">
+      <option name="closed" value="true" />
+      <created>1732544773415</created>
+      <option name="number" value="LOCAL−00018" />
+      <option name="presentableId" value="LOCAL−00018" />
+      <updated>1732544773415</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -230,6 +259,7 @@
     <MESSAGE value="rettet opp feil + CurrencyExchange klassenen" />
     <MESSAGE value="mer rettelse" />
     <MESSAGE value="smart search" />
+    <MESSAGE value="added search for student" />
     <MESSAGE value="changed from H2database to mysql database" />
     <option name="LAST_COMMIT_MESSAGE" value="changed from H2database to mysql database" />
   </component>
