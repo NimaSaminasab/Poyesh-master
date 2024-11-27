@@ -78,16 +78,28 @@ public class FamilyController {
         }
         return "elev is inaktive" ;
     }
-    @GetMapping("/findFamilyByFarFornavnAndEtternavn/{fornavn}/{etternavn}")
+    @GetMapping("/findFamily/{input}")
     @ResponseBody
-    public List<Family> findFamilyByFarFornavnAndEtternavn(@PathVariable String fornavn, @PathVariable String etternavn){
-      return familyService.findFamilyByFarFornavnAndEtternavn(fornavn,etternavn) ;
+    public Object findFamily(@PathVariable String input) {
+        String[] terms = input.split(" ");
+        if (terms.length == 2) {
+            // Full name provided: Assume the input is "fornavn etternavn"
+            String fornavn = terms[0];
+            String etternavn = terms[1];
+            List<Family> families = familyService.findFamilyByFullName(fornavn, etternavn);
+            return !families.isEmpty() ? families : "No families found with name: " + fornavn + " " + etternavn;
+        } else if (input.matches("\\d+")) {
+            // Numeric input: Treat as an ID
+            long id = Long.parseLong(input);
+            Family family = familyService.findFamilyById(id);
+            return family != null ? family : "No family found with ID: " + id;
+        } else {
+            // Single input or other cases: Perform a flexible search
+            List<Family> families = familyService.searchFamilyByParents(input);
+            return !families.isEmpty() ? families : "No families found matching input: " + input;
+        }
     }
-    @GetMapping("/findFamilyByMorFornavnAndEtternavn/{fornavn}/{etternavn}")
-    @ResponseBody
-    public List<Family> findFamilyByMorFornavnAndEtternavn(@PathVariable String fornavn, @PathVariable String etternavn){
-        return familyService.findFamilyByMorFornavnAndEtternavn(fornavn,etternavn) ;
-    }
+
     @GetMapping("/deactivateFamily/{id}")
     @ResponseBody
     public String deactiveFamily(@PathVariable long id){

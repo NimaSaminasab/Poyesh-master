@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33535a36-198b-4e44-921a-b3187c0ab43b" name="Changes" comment="changed from H2database to mysql database">
+    <list default="true" id="33535a36-198b-4e44-921a-b3187c0ab43b" name="Changes" comment="Finished search for supporter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SupporterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SupporterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SupporterRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SupporterRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SupporterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SupporterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FamilyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FamilyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FamilyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FamilyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FamilyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FamilyService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +240,14 @@
       <option name="presentableId" value="LOCAL−00019" />
       <updated>1732607621491</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL−00020" summary="Finished search for supporter">
+      <option name="closed" value="true" />
+      <created>1732696872414</created>
+      <option name="number" value="LOCAL−00020" />
+      <option name="presentableId" value="LOCAL−00020" />
+      <updated>1732696872414</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -271,7 +278,8 @@
     <MESSAGE value="smart search" />
     <MESSAGE value="added search for student" />
     <MESSAGE value="changed from H2database to mysql database" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed from H2database to mysql database" />
+    <MESSAGE value="Finished search for supporter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished search for supporter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

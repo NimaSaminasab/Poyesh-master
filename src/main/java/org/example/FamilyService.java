@@ -34,11 +34,21 @@ public class FamilyService {
         return (List<Family>) familyRepository.findAll();
     }
 
-    public List<Family> findFamilyByFarFornavnAndEtternavn(String fornavn,String etternavn){
-        return familyRepository.findFamilyByFarFornavnIgnoreCaseAndFarEtternavnIgnoreCase(fornavn,etternavn) ;
+
+    public List<Family> searchFamilyByParents(String input) {
+        if (input == null || input.trim().isEmpty()) {
+            return List.of(); // Return an empty list if input is null or blank
+        }
+        return familyRepository.searchFamilyByParents(input.trim());
     }
-    public List<Family> findFamilyByMorFornavnAndEtternavn(String fornavn,String etternavn){
-        return familyRepository.findFamilyByMorFornavnIgnoreCaseAndMorEtternavnIgnoreCase(fornavn,etternavn) ;
+
+
+    public List<Family> findFamilyByFullName(String fornavn, String etternavn) {
+        if (fornavn == null || etternavn == null) {
+            return List.of(); // Return an empty list if inputs are null
+        }
+        return familyRepository.findFamilyByFullName(fornavn.trim(), etternavn.trim());
     }
+
 
 }
