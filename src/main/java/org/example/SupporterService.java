@@ -61,6 +61,29 @@ public class SupporterService {
         return supporterRepository.findByEtternavnIgnoreCase(etternavn) ;
     }
 
+
+    public List<Supporter> findSupporterByTelefonOrPostnummer(String input) {
+        return supporterRepository.findSupporterByTelefonOrPostnummer(input);
+    }
+
+    public List<Supporter> searchSupportersByMultipleFields(String input) {
+        // Normalize input: trim whitespace and ensure it's not null
+        String trimmedInput = input != null ? input.trim() : "";
+
+        if (trimmedInput.isEmpty()) {
+            return List.of(); // Return empty if input is blank
+        }
+
+        // Attempt exact match first, then fallback to partial matching
+        List<Supporter> results = supporterRepository.searchSupportersByMultipleFields(trimmedInput);
+
+        // Return results
+        return results;
+    }
+
+
+
+
     public Supporter findSupporterByTelefon(String telefon) {
         return supporterRepository.findByTelefon(telefon) ;
     }

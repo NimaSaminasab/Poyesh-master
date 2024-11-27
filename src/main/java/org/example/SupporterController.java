@@ -54,6 +54,32 @@ public class SupporterController {
     public Supporter updateElev(@RequestBody Supporter supporter,@PathVariable long supporterId) throws Exception {
         return supporterService.updateSupporter(supporter,supporterId) ;
     }
+    @GetMapping("/findSupporter/{input}")
+    @ResponseBody
+    public Object findSupporter(@PathVariable String input) {
+        if (input.matches("\\d+")) {
+            long numericInput = Long.parseLong(input);
+
+            // Check for supporter by ID
+            Supporter supporterById = supporterService.findSupporterById(numericInput);
+            if (supporterById != null) {
+                return supporterById;
+            }
+
+            // Check for supporters by telefon or postnummer
+            List<Supporter> supportersByNumericFields = supporterService.findSupporterByTelefonOrPostnummer(String.valueOf(numericInput));
+            return !supportersByNumericFields.isEmpty() ? supportersByNumericFields : "No supporters found with numeric input: " + numericInput;
+        } else {
+            List<Supporter> supporters = supporterService.searchSupportersByMultipleFields(input);
+            return !supporters.isEmpty() ? supporters : "No supporters found matching input: " + input;
+        }
+    }
+
+
+
+
+
+
     @GetMapping("/findSupporterByFornavnAndEtternavn/{fornavn}/{etternavn}")
     @ResponseBody
     public List<Supporter> findSupporterByFornavnAndEtternavn(@PathVariable String fornavn,@PathVariable String etternavn){
