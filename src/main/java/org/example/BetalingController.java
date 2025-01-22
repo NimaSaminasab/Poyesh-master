@@ -3,14 +3,16 @@ package org.example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+//import java.util.Date;
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/createBetaling")
 public class BetalingController {
 
     @Autowired
@@ -27,7 +29,6 @@ public class BetalingController {
     @PostMapping("/createBetaling")
     @ResponseBody
     public String createBetaling(@RequestBody Betaling betaling) throws Exception {
-        System.out.println("Received betaling: " + betaling);
 
         // Validate elev
         if (betaling.getElevId() == null) {
@@ -90,27 +91,81 @@ public class BetalingController {
             return "No valid id";
     }
 
-    @GetMapping("/findABetalingById/{id}")
+
+
+    @GetMapping("/findBetaling/{searchword}")
     @ResponseBody
-    public Betaling findABetalingById(@PathVariable long id) {
-        if (id > 0) {
-            return betalingService.findABetalingById(id);
+    public List<Map<String, Object>> findBetaling(@PathVariable String searchword) {
+        // Check if it's a fakturaNummer
+        List<Map<String, Object>> payments = betalingService.findABetalingByFakturanummer(searchword).stream()
+                .map(this::mapToResponse)
+                .collect(Collectors.toList());
+        if (!payments.isEmpty()) {
+            return payments;
         }
-        return null;
+
+        // Check if it's a date in YYYY-MM-DD format
+        if (searchword.matches("\\d{4}-\\d{2}-\\d{2}")) {
+            try {
+                Date date = Date.valueOf(searchword); // Convert String to java.sql.Date
+                return betalingService.findABetalingByDate(date).stream()
+                        .map(this::mapToResponse)
+                        .collect(Collectors.toList());
+            } catch (IllegalArgumentException e) {
+                throw new RuntimeException("Invalid date format: " + searchword);
+            }
+        }
+
+        // Check if it's a numeric value (for belop)
+        if (searchword.matches("\\d+(\\.\\d+)?")) {
+            try {
+                double belop = Double.parseDouble(searchword);
+                return betalingService.findABetalingByBelop(belop).stream()
+                        .map(this::mapToResponse)
+                        .collect(Collectors.toList());
+            } catch (NumberFormatException e) {
+                throw new RuntimeException("Invalid numeric format: " + searchword);
+            }
+        }
+
+        // Check for supporter name or lastname
+        payments = betalingService.findABetalingBySupporterFullName(searchword).stream()
+                .map(this::mapToResponse)
+                .collect(Collectors.toList());
+        if (!payments.isEmpty()) {
+            return payments;
+        }
+
+        // Check for elev name or lastname
+        payments = betalingService.findABetalingByElevFullName(searchword).stream()
+                .map(this::mapToResponse)
+                .collect(Collectors.toList());
+        if (!payments.isEmpty()) {
+            return payments;
+        }
+
+        // Return empty list if no matches are found
+        return List.of();
     }
 
-    @GetMapping("/findABetaling/")
-    @ResponseBody
-    public List<Betaling> findABetaling(@RequestBody Betaling betaling) {
-        if (betaling.getId() > 0) {
-            return betalingService.findABetalingById2(betaling.getId());
-        } else if (betaling.getFakturaNummer() != null) {
-            return betalingService.findABetalingByFakturanummer(betaling.getFakturaNummer());
-        } else if (betaling.getDato() != null) {
-            return betalingService.findABetalingByDate(betaling.getDato());
-        }
-        return null;
+
+
+
+
+
+    private Map<String, Object> mapToResponse(Betaling betaling) {
+        Map<String, Object> paymentMap = new HashMap<>();
+        paymentMap.put("id", betaling.getId());
+        paymentMap.put("fakturaNummer", betaling.getFakturaNummer());
+        paymentMap.put("belop", betaling.getBelop());
+        paymentMap.put("dato", betaling.getDato());
+        paymentMap.put("supporterName", betaling.getSupporter().getFornavn() + " " + betaling.getSupporter().getEtternavn());
+        paymentMap.put("elevName", betaling.getElev().getFornavn() + " " + betaling.getElev().getEtternavn());
+        return paymentMap;
     }
+
+
+
 
     @GetMapping("/findAllBetaling")
     @ResponseBody

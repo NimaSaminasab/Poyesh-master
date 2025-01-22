@@ -51,25 +51,15 @@ public class BankInfoController {
         return null;
     }
 
-    @GetMapping("/findABankInfo/{searchWord}")
+    @GetMapping("/findBankInfo/{input}")
     @ResponseBody
-    public BankInfo findABankInfo(@PathVariable String searchWord) {
-        BankInfo bankInfo = null;
-
-        if (searchWord != null) {
-            bankInfo = bankInfoService.findBankInfoByKontonummer(searchWord);
-            if (bankInfo == null) {
-                bankInfo = bankInfoService.findBankInfoByShebaNummer(searchWord);
-                if (bankInfo == null) {
-                    bankInfo = bankInfoService.findBankInfoByKortNummer(searchWord);
-                    if(bankInfo==null){
-                        bankInfo = bankInfoService.findBankInfoByKortHoldersNavn(searchWord);
-                    }
-                }
-            }
+    public List<BankInfo> findBankInfo(@PathVariable String input) {
+        if (input == null || input.trim().isEmpty()) {
+            return List.of(); // Return an empty list if input is null or empty
         }
-        return bankInfo;
+        return bankInfoService.searchBankInfo(input.trim());
     }
+
 
 
     @GetMapping("/findAllBankInfo")

@@ -44,4 +44,13 @@ public class BankInfoService {
     public BankInfo findBankInfoByKortHoldersNavn(String searchWord) {
         return bankInfoRepository.findByKontoHoldersNavn(searchWord) ;
     }
+    public List<BankInfo> searchBankInfo(String input) {
+        List<BankInfo> results = bankInfoRepository.searchBankInfoByFields(input);
+
+        return results;
+    }
+
+
+
+
 }
