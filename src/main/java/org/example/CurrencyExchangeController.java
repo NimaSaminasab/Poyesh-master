@@ -1,6 +1,7 @@
 package org.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -19,6 +20,7 @@ public class CurrencyExchangeController {
     @PostMapping("/createCurrencyExchange")
     @ResponseBody
     public CurrencyExchange createCurrencyExchange(@RequestBody CurrencyExchange currencyExchange) {
+        System.out.println(currencyExchange.getDate());
          List<Betaling> betalingList = betalingService.findAllBetaling();
         for (int i = 0; i < betalingList.size(); i++) {
              if (betalingList.get(i).getToman() == 0.0) {
@@ -49,11 +51,18 @@ public class CurrencyExchangeController {
         return currencyExchangeService.findCurrencyExchangeById(id);
     }
 
-    @GetMapping("/findCurrencyExchangeByDate/{date}")
+    @GetMapping("/findCurrencyExchange/{date}")
     @ResponseBody
-    public CurrencyExchange findCurrencyByDate(@PathVariable Date date) {
-        return currencyExchangeService.findCurrencyExchangeByDate(date);
+    public List<CurrencyExchange> findCurrencyByDate(
+            @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date date
+    ) {
+        System.out.println("Parsed Date: " + date);
+        CurrencyExchange exchange = currencyExchangeService.findCurrencyExchangeByDate(date);
+        return exchange != null ? List.of(exchange) : List.of();
     }
+
+
+
 
 
     @GetMapping("findAllCurrencyExchange")

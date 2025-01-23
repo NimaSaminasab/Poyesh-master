@@ -6,13 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="33535a36-198b-4e44-921a-b3187c0ab43b" name="Changes" comment="Finished search for Family">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BankInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BankInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BankInfoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BankInfoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BankInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BankInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BetalingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BetalingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BetalingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BetalingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BetalingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BetalingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CurrencyExchange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CurrencyExchange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CurrencyExchangeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CurrencyExchangeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CurrencyExchangeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CurrencyExchangeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CurrencyExchangeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CurrencyExchangeService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,7 +255,14 @@
       <option name="presentableId" value="LOCAL−00021" />
       <updated>1732713561620</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL−00022" summary="Finished search for Family">
+      <option name="closed" value="true" />
+      <created>1737583826399</created>
+      <option name="number" value="LOCAL−00022" />
+      <option name="presentableId" value="LOCAL−00022" />
+      <updated>1737583826399</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

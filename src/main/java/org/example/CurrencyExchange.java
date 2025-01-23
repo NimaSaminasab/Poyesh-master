@@ -1,10 +1,7 @@
 package org.example;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,8 +19,9 @@ public class CurrencyExchange {
     @GeneratedValue
 
     private long id ;
+    @Temporal(TemporalType.DATE)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "UTC")
-    Date date ;
+    private Date date;
     double nok ;
     double toman ;
     double kurs ;
