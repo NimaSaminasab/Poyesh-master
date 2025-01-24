@@ -83,4 +83,9 @@ public class Elev {
             return false;
     }
 
+    public String getFullName() {
+        return fornavn + " " + etternavn;
+    }
+
+
 }
