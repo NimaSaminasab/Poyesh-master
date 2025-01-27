@@ -49,8 +49,9 @@ public class BankInfoService {
 
         return results;
     }
-
-
+    public List<BankInfo> findAllWithElev() {
+        return bankInfoRepository.findAllWithElev();
+    }
 
 
 }

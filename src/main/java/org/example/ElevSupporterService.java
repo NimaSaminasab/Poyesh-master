@@ -16,7 +16,7 @@ public class ElevSupporterService {
 
     public String deleteElevSupporter(ElevSupporter elevSupporter) {
         if (elevSupporter != null) {
-            long id = elevSupporter.id;
+            long id = elevSupporter.getId();
             elevSupporterRepository.delete(elevSupporter);
             return id + " is deleted";
         }

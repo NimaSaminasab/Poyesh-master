@@ -22,6 +22,9 @@ public interface BankInfoRepository extends CrudRepository<BankInfo,Long> {
             "OR (:input IS NOT NULL AND (:input = b.kontoNummer OR :input = b.shebaNummer OR :input = b.kortNummer))")
     List<BankInfo> searchBankInfoByFields(@Param("input") String input);
 
+    @Query("SELECT b FROM BankInfo b JOIN FETCH b.elev")
+    List<BankInfo> findAllWithElev();
+
 
 
 }

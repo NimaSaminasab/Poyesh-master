@@ -1,5 +1,6 @@
 package org.example;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
@@ -14,30 +15,28 @@ public class Betaling {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id ;
-    private String fakturaNummer ;
+    private long id;
+    private String fakturaNummer;
     private double belop;
-    private double toman ;
+    private double toman;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "UTC")
-    private Date dato ;
+    private Date dato;
+
     @ManyToOne
     @JoinColumn(name = "elev_id")
-    private Elev elev ;
+    @JsonBackReference // Resolves circular reference for Elev
+    private Elev elev;
+
     @ManyToOne
     @JoinColumn(name = "supporter_id")
-    private Supporter supporter ;
+    @JsonBackReference // Resolves circular reference for Supporter
+    private Supporter supporter;
+
     @ManyToOne
-    CurrencyExchange currencyExchange ;
-    @Transient
-    private Long supporterId;
+    @JoinColumn(name = "currency_exchange_id")
+    @JsonBackReference
+    private CurrencyExchange currencyExchange; // Property referenced in CurrencyExchange
 
-    @Transient
-    private Long elevId;
-    public Betaling(String fakturaNummer, int belop, Date dato) {
-        this.fakturaNummer = fakturaNummer;
-        this.belop = belop;
-        this.dato = dato;
-    }
-
-    public Betaling(){}
+    public Betaling() {}
 }

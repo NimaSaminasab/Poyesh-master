@@ -27,7 +27,7 @@ public class CurrencyExchange {
     double kurs ;
     double gebyr ;
 
-    @OneToMany(mappedBy = "currencyExchange")
+    @OneToMany(mappedBy = "currencyExchange", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Betaling> betalingList = new ArrayList<>();
 
@@ -44,4 +44,6 @@ public class CurrencyExchange {
     public double realityRate(){
         return toman/nok ;
     }
+
+
 }

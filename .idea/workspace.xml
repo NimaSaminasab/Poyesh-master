@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33535a36-198b-4e44-921a-b3187c0ab43b" name="Changes" comment="exchange fixed">
+    <list default="true" id="33535a36-198b-4e44-921a-b3187c0ab43b" name="Changes" comment="StudentDetails made">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BankInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BankInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BankInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BankInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BankInfoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BankInfoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BankInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BankInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Betaling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Betaling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BetalingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BetalingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CurrencyExchange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CurrencyExchange.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Elev.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Elev.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ElevSupporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ElevSupporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ElevSupporterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ElevSupporterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Family.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Family.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Supporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Supporter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,7 +277,14 @@
       <option name="presentableId" value="LOCAL−00023" />
       <updated>1737669601007</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL−00024" summary="StudentDetails made">
+      <option name="closed" value="true" />
+      <created>1737756000001</created>
+      <option name="number" value="LOCAL−00024" />
+      <option name="presentableId" value="LOCAL−00024" />
+      <updated>1737756000001</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -300,7 +318,8 @@
     <MESSAGE value="Finished search for supporter" />
     <MESSAGE value="Finished search for Family" />
     <MESSAGE value="exchange fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="exchange fixed" />
+    <MESSAGE value="StudentDetails made" />
+    <option name="LAST_COMMIT_MESSAGE" value="StudentDetails made" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

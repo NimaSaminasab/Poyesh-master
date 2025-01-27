@@ -1,29 +1,26 @@
 package org.example;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Setter
 @Getter
+@Setter
 public class ElevSupporter {
     @Id
     @GeneratedValue
-    long id ;
+    private long id;
+
     @ManyToOne
-    //@JsonIgnore
+    @JsonBackReference // Resolves circular reference for Elev
     private Elev elev;
 
     @ManyToOne
-    //@JsonIgnore
+    @JsonBackReference // Resolves circular reference for Supporter
     private Supporter supporter;
 
-    public ElevSupporter(Elev elev, Supporter supporter) {
-        this.elev = elev;
-        this.supporter = supporter;
-
-    }
-    public ElevSupporter(){}
+    public ElevSupporter() {}
 }

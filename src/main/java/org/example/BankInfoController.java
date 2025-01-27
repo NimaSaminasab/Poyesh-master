@@ -60,12 +60,10 @@ public class BankInfoController {
         return bankInfoService.searchBankInfo(input.trim());
     }
 
-
-
     @GetMapping("/findAllBankInfo")
     @ResponseBody
     public List<BankInfo> findAllBankInfo() {
-        return bankInfoService.findAllBankInfo();
+        return bankInfoService.findAllWithElev();
     }
 
 

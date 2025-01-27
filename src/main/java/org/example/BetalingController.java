@@ -31,19 +31,19 @@ public class BetalingController {
     public String createBetaling(@RequestBody Betaling betaling) throws Exception {
 
         // Validate elev
-        if (betaling.getElevId() == null) {
+        if (betaling.getElev() == null || betaling.getElev().getId() == 0) {
             return "Elev ID is required.";
         }
-        Elev elev = elevService.findElevById(betaling.getElevId());
+        Elev elev = elevService.findElevById(betaling.getElev().getId());
         if (elev == null || !elev.isAktiv()) {
             return "Elev is inactive or not found.";
         }
 
         // Validate supporter
-        if (betaling.getSupporterId() == null) {
+        if (betaling.getSupporter() == null || betaling.getSupporter().getId() == 0) {
             return "Supporter ID is required.";
         }
-        Supporter supporter = supporterService.findSupporterById(betaling.getSupporterId());
+        Supporter supporter = supporterService.findSupporterById(betaling.getSupporter().getId());
         if (supporter == null || !supporter.isAktiv()) {
             return "Supporter is inactive or not found.";
         }
@@ -77,6 +77,7 @@ public class BetalingController {
         System.out.println("Payment successfully created with resolved elev and supporter.");
         return "Payment successfully created!";
     }
+
 
     @DeleteMapping("/deleteBetaling/{id}")
     @ResponseBody
@@ -179,9 +180,9 @@ public class BetalingController {
 
             // Include supporter and elev names
             paymentMap.put("supporterId", betaling.getSupporter().getId());
-            paymentMap.put("supporterName", betaling.getSupporter().getFornavn() + " " + betaling.getSupporter().getEtternavn()); // Assuming `getNavn()` returns the name
+            paymentMap.put("supporterName", betaling.getSupporter().getFornavn() + " " + betaling.getSupporter().getEtternavn());
             paymentMap.put("elevId", betaling.getElev().getId());
-            paymentMap.put("elevName", betaling.getElev().getFornavn() + " " + betaling.getElev().getEtternavn() ) ; // Assuming `getNavn()` returns the name
+            paymentMap.put("elevName", betaling.getElev().getFornavn() + " " + betaling.getElev().getEtternavn() ) ;
             return paymentMap;
         }).collect(Collectors.toList());
     }
