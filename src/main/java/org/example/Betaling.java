@@ -1,6 +1,7 @@
 package org.example;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
@@ -39,4 +40,9 @@ public class Betaling {
     private CurrencyExchange currencyExchange; // Property referenced in CurrencyExchange
 
     public Betaling() {}
+
+    @JsonProperty("elevName")
+    public String getElevName() {
+        return elev != null ? elev.getFullName() : null;
+    }
 }

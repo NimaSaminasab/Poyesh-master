@@ -16,11 +16,9 @@ public class CurrencyExchangeController {
     BetalingService betalingService;
 
 
-
     @PostMapping("/createCurrencyExchange")
     @ResponseBody
     public CurrencyExchange createCurrencyExchange(@RequestBody CurrencyExchange currencyExchange) {
-        System.out.println(currencyExchange.getDate());
          List<Betaling> betalingList = betalingService.findAllBetaling();
         for (int i = 0; i < betalingList.size(); i++) {
              if (betalingList.get(i).getToman() == 0.0) {
@@ -36,13 +34,17 @@ public class CurrencyExchangeController {
         return currencyExchangeService.createCurrencyExchange(currencyExchange);
     }
 
-    @DeleteMapping("/deleteCurrencyExchange/")
+    @DeleteMapping("/deleteCurrencyExchange/{id}")
     @ResponseBody
-    public String deleteCurrencyExchange(CurrencyExchange currencyExchange) {
-        if (currencyExchange == null)
-            return "error";
-        currencyExchangeService.deleteCurrencyExchange(currencyExchange);
-        return "ok";
+    public String deleteCurrencyExchange(@PathVariable long id) {
+        if(id>0) {
+            CurrencyExchange currencyExchange = currencyExchangeService.findCurrencyExchangeById(id);
+            if (currencyExchange == null)
+                return "error";
+            currencyExchangeService.deleteCurrencyExchange(currencyExchange);
+            return "ok";
+        }
+        return "id not found" ;
     }
 
     @GetMapping("/findCurrencyExchangeById/{id}")
@@ -56,14 +58,9 @@ public class CurrencyExchangeController {
     public List<CurrencyExchange> findCurrencyByDate(
             @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date date
     ) {
-        System.out.println("Parsed Date: " + date);
         CurrencyExchange exchange = currencyExchangeService.findCurrencyExchangeByDate(date);
         return exchange != null ? List.of(exchange) : List.of();
     }
-
-
-
-
 
     @GetMapping("findAllCurrencyExchange")
     @ResponseBody

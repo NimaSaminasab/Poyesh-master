@@ -73,8 +73,6 @@ public class BetalingController {
             family.setSumMotatt(family.getSumMotatt() + betaling.getBelop());
             familyService.familyRepository.save(family);
         }
-
-        System.out.println("Payment successfully created with resolved elev and supporter.");
         return "Payment successfully created!";
     }
 

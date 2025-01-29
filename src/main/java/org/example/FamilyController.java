@@ -59,7 +59,6 @@ public class FamilyController {
     @PostMapping("/assignElevToFamily/{elevId}/{familyId}")
     @ResponseBody
     public String assignElevToFamily(@PathVariable long elevId,@PathVariable long familyId){
-        System.out.println("elevid : " + elevId + "family id : " + familyId );
         Family family= familyService.findFamilyById(familyId);
         if(family== null)
             return "FamilyId " + familyId + " doesnt exist." ;

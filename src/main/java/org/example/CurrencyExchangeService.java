@@ -25,10 +25,8 @@ public class CurrencyExchangeService {
     }
 
     public CurrencyExchange findCurrencyExchangeByDate(Date date) {
-        System.out.println("Parsed Date: " + date);
         CurrencyExchange exchange = currencyExchangeRepository.findByDate(date);
-        System.out.println("Found Exchange: " + exchange);
-        return exchange;
+         return exchange;
     }
 
 }
