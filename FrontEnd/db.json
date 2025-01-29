@@ -1,0 +1,36 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "fornavn": "Mohammad",
+      "etternavn": "Metvayi",
+      "personnummer": "236562674656",
+      "telefon1": "09021282843",
+      "telefon2": "09662356556",
+      "telefon3": "09662356556",
+      "by": "Tehran",
+      "fDato": "1996-06-06",
+      "skolenavn": "test",
+      "behovSumPrManed": 50000,
+      "motattSumTilNa": 25000,
+      "bilde": "https://www.pngmart.com/files/22/User-Avatar-Profile-Transparent-Background.png",
+      "film": "https://www.pngmart.com/files/22/User-Avatar-Profile-Transparent-Background.png"
+    },
+    {
+      "id": 2,
+      "fornavn": "Ali",
+      "etternavn": "Metvayi",
+      "personnummer": "56268565263665",
+      "telefon1": "09021282843",
+      "telefon2": "09662356556",
+      "telefon3": "09662356556",
+      "by": "Tehran",
+      "fDato": "1996-06-06",
+      "skolenavn": "test",
+      "behovSumPrManed": 50000,
+      "motattSumTilNa": 25000,
+      "bilde": "https://www.pngmart.com/files/22/User-Avatar-Profile-Transparent-Background.png",
+      "film": "https://www.pngmart.com/files/22/User-Avatar-Profile-Transparent-Background.png"
+    }
+  ]
+}

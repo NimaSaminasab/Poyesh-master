@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33535a36-198b-4e44-921a-b3187c0ab43b" name="Changes" comment="StudentDetails made">
+    <list default="true" id="33535a36-198b-4e44-921a-b3187c0ab43b" name="Changes" comment="Betaling fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Betaling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Betaling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BetalingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BetalingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CurrencyExchangeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CurrencyExchangeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CurrencyExchangeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CurrencyExchangeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/FamilyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/FamilyController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,7 +279,14 @@
       <option name="presentableId" value="LOCAL−00025" />
       <updated>1738007297065</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL−00026" summary="Betaling fixed">
+      <option name="closed" value="true" />
+      <created>1738185502105</created>
+      <option name="number" value="LOCAL−00026" />
+      <option name="presentableId" value="LOCAL−00026" />
+      <updated>1738185502105</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -319,7 +321,8 @@
     <MESSAGE value="Finished search for Family" />
     <MESSAGE value="exchange fixed" />
     <MESSAGE value="StudentDetails made" />
-    <option name="LAST_COMMIT_MESSAGE" value="StudentDetails made" />
+    <MESSAGE value="Betaling fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Betaling fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,0 +1,17 @@
+.assignFamily {
+    padding: 2rem;
+  
+    &__form {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem
+    }
+  
+    &__button {
+      grid-column: 3/4;
+      width: max-content;
+      justify-self: flex-end;
+    }
+  }
+  

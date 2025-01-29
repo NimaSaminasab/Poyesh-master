@@ -1,0 +1,81 @@
+.supporters {
+    padding: 2rem;
+  
+  
+    &__search {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 2rem;
+  
+      button {
+        grid-column: 1/4;
+      }
+    }
+  
+    header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+      gap: 1rem;
+  
+      h1 {
+        margin-right: auto;
+      }
+    }
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+  
+      thead {
+        tr {
+          padding: 0.5rem;
+          background-color: #02adad;
+          font-weight: 600;
+  
+          th {
+            color: white;
+  
+            &:first-child {
+              border-radius: 0.5rem 0 0 0;
+            }
+  
+            &:last-child {
+              border-radius: 0 0.5rem 0 0;
+            }
+  
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            padding: 0.5rem;
+            text-align: left;
+          }
+        }
+      }
+  
+      tbody {
+        tr {
+          td {
+            padding: 0.5rem;
+            color: #444;
+  
+            img {
+              width: 2rem;
+            }
+          }
+  
+          &:nth-child(odd) {
+            background-color: rgba(0, 139, 139, 0.09);
+          }
+  
+          &:nth-child(even) {
+            background-color: rgba(0, 139, 139, 0.22);
+          }
+        }
+      }
+  
+    }
+  }
+  

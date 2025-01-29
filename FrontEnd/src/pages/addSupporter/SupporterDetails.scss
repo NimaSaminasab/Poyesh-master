@@ -1,0 +1,34 @@
+.SupporterDetails {
+    h1, h2 {
+        margin-bottom: 10px;
+    }
+
+    table {
+        width: 70%; /* Set a smaller width for the table */
+        border-collapse: collapse;
+        margin: 20px auto; /* Center the table horizontally */
+        font-size: 14px; /* Reduce font size for smaller table */
+
+        th, td {
+            border: 1px solid #ccc; /* Add border for cells */
+            padding: 5px; /* Reduce padding for smaller cells */
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4; /* Add background color for headers */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Add alternate row colors */
+        }
+
+        tr:hover {
+            background-color: #eaeaea; /* Highlight row on hover */
+        }
+    }
+
+    p {
+        margin: 5px 0;
+    }
+}

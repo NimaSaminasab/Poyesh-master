@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  align-items: center;
+  background-color: darkcyan;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+
+  img.logo {
+    height: 3rem;
+  }
+
+  nav {
+    //margin: 0 auto;
+
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+      padding: unset;
+      margin: unset;
+      color: #ebebeb;
+      font-weight: 600;
+
+      li {
+        padding: 0.5rem 1rem;
+        transition: all 0.2s ease-in;
+        cursor: pointer;
+        border-radius: 0.5rem;
+
+        &:hover {
+          background-color: #015656;
+        }
+      }
+    }
+  }
+}
